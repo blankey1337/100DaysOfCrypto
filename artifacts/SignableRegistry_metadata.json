@@ -1,0 +1,519 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "content",
+						"type": "string"
+					}
+				],
+				"name": "Amend",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					}
+				],
+				"name": "GrantAdmin",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "content",
+						"type": "string"
+					}
+				],
+				"name": "Register",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "revoker",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "Revoke",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					}
+				],
+				"name": "RevokeAdmin",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "signer",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "Sign",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DOMAIN_SEPARATOR",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "SIG_HASH",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "admins",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "content",
+						"type": "string"
+					}
+				],
+				"name": "amend",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "signer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "checkSignature",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "signed",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					}
+				],
+				"name": "grantAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "content",
+						"type": "string"
+					}
+				],
+				"name": "register",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "revoke",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "admin",
+						"type": "address"
+					}
+				],
+				"name": "revokeAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "signer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "v",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "revokeMeta",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "sign",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "signer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "v",
+						"type": "uint8"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "r",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "s",
+						"type": "bytes32"
+					}
+				],
+				"name": "signMeta",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "signables",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "content",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "signablesCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "superAdmin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"amend(uint256,string)": {
+					"details": "Can only be called by `admins`.",
+					"params": {
+						"content": "Signable string - could be IPFS hash, plaintext, or JSON.",
+						"index": "`content` # to update."
+					}
+				},
+				"checkSignature(address,uint256)": {
+					"params": {
+						"index": "`content` # to check signature against.",
+						"signer": "Account to check signature for."
+					}
+				},
+				"constructor": {
+					"details": "Initialize contract and `DOMAIN_SEPARATOR`."
+				},
+				"grantAdmin(address)": {
+					"details": "Can only be called by `superAdmin`.",
+					"params": {
+						"admin": "Account to grant rights."
+					}
+				},
+				"register(string)": {
+					"details": "Can only be called by `admins`.",
+					"params": {
+						"content": "Signable string - could be IPFS hash, plaintext, or JSON."
+					}
+				},
+				"revoke(uint256)": {
+					"params": {
+						"index": "`content` # to map signature revocation against."
+					}
+				},
+				"revokeAdmin(address)": {
+					"details": "Can only be called by `superAdmin`.",
+					"params": {
+						"admin": "Account to revoke rights from."
+					}
+				},
+				"revokeMeta(address,uint256,uint8,bytes32,bytes32)": {
+					"params": {
+						"index": "`content` # to map signature revocation against.",
+						"r": "Half of the ECDSA signature pair.",
+						"s": "Half of the ECDSA signature pair.",
+						"signer": "Account to revoke signature for.",
+						"v": "The recovery byte of the signature."
+					}
+				},
+				"sign(uint256)": {
+					"params": {
+						"index": "`content` # to map signature against."
+					}
+				},
+				"signMeta(address,uint256,uint8,bytes32,bytes32)": {
+					"params": {
+						"index": "`content` # to map signature against.",
+						"r": "Half of the ECDSA signature pair.",
+						"s": "Half of the ECDSA signature pair.",
+						"signer": "Account to register signature for.",
+						"v": "The recovery byte of the signature."
+					}
+				}
+			},
+			"stateVariables": {
+				"DOMAIN_SEPARATOR": {
+					"details": "EIP-712 variables:"
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"amend(uint256,string)": {
+					"notice": "Update `content` for signatures."
+				},
+				"checkSignature(address,uint256)": {
+					"notice": "Check an `account` for signature against indexed `content`."
+				},
+				"grantAdmin(address)": {
+					"notice": "Grant an `admin` `content` registration rights."
+				},
+				"register(string)": {
+					"notice": "Register `content` for signatures."
+				},
+				"revoke(uint256)": {
+					"notice": "Revoke signature against indexed `content`."
+				},
+				"revokeAdmin(address)": {
+					"notice": "Revoke an `admin` from `content` registration rights."
+				},
+				"revokeMeta(address,uint256,uint8,bytes32,bytes32)": {
+					"notice": "Revoke signature against indexed `content` using EIP-712 metaTX."
+				},
+				"sign(uint256)": {
+					"notice": "Register signature against indexed `content`."
+				},
+				"signMeta(address,uint256,uint8,bytes32,bytes32)": {
+					"notice": "Register signature against indexed `content` using EIP-712 metaTX."
+				}
+			},
+			"notice": "Protocol for registering content and signatures.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"003-signable-registry.sol": "SignableRegistry"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"003-signable-registry.sol": {
+			"keccak256": "0x481faa6f6bfbc5cb23c48d7949da4931a7066017d7f00ba0af9baf4ee099c994",
+			"license": "GPL-3.0-or-later",
+			"urls": [
+				"bzz-raw://746d5d87f07ac0bfad4277b34ad752d95a0cc51138e675e731832269350b0d46",
+				"dweb:/ipfs/QmWqUtwtSJ1MCfbxwTLeqzQG1h6DoRdYJoA3avH7qYXwiS"
+			]
+		}
+	},
+	"version": 1
+}
